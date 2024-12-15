@@ -11,8 +11,10 @@ try	hawk
 except	tuah
 finally	spit on that thang
 return	its giving
--	fanum tax
 +	rizz
+-	fanum tax
++=	rizz ong
+-=	fanum tax ong
 print	yap!yaap
 True	aura
 False	cooked
@@ -31,7 +33,7 @@ assert	sus
 raise	crashout
 in	diddy
 is	low key
-# and	fr
+and	FR
 or	bet
 not	cap
 with	pookie
@@ -60,6 +62,7 @@ close	demure
 # list	
 # set	
 # dict	
+:	cook
 '''.strip()
 
 
@@ -135,16 +138,17 @@ def main():
 			# 	is_code_now = True
 			if c in ('"', "'") and prev_c != "\\":
 				is_code_now = not is_code_now
-			if not is_code_now and c == "{":
-				is_code_now = True
-			if is_code_now and c == "}":
-				is_code_now = False
+			# TODO: fix dis huge ohio L
+			# if not is_code_now and c == "{":
+			# 	is_code_now = True
+			# if is_code_now and c == "}":
+			# 	is_code_now = False
 			is_code_at.append(is_code_now)
 			# prev_prev_c = prev_c
 			prev_c = c
 		return is_code_at
 
-	def print_colored(code: str):
+	def yap_colored(code: str):
 		is_code_at = gen_is_code_at(code)
 		for (i, c) in enumerate(code):
 			if not is_code_at[i]:
@@ -170,8 +174,8 @@ def main():
 	while (ki := find_sus(code)) is not None:
 		k, i = ki
 		code = replace_from(code, i, k, BRAINROT[k])
-		# print_colored(code)
-		# print()
+		# yap_colored(code)
+		# print("\n"*10)
 
 	# print(code)
 
