@@ -1,7 +1,8 @@
 # yap py skibidi rizz
 
 import argparse
-import subprocess
+from subprocess import run as subprocess_run
+from sys import exit as sys_exit
 
 
 
@@ -78,28 +79,44 @@ BRAINROT_2: dict[str, str] = {
 	for k in (key if isinstance(key, tuple) else [key])
 }
 
+
+
 BRAINROT = dict(sorted(BRAINROT_2.items(), key=lambda kv: (-len(kv[0]), kv[0])))
-# print((sorted(BRAINROT.items(), key=lambda kv: kv[0])))
-# sys.exit(0)
 
 
 
 def main():
 	parser = argparse.ArgumentParser(
-		description="This script be out here mogging Yappy into regular Python like a true Sigma coder—straight skibidi efficiency with no cringe, just pure updog energy. 🐍💻"
+		description="This script be out here mogging Yappy into regular Python like a true Sigma coder—straight skibidi efficiency with no cringe, just pure updog energy. 🐍 💻",
+		# conflict_handler="L rizz",
 	)
-	parser.add_argument("input_file_path")
 	parser.add_argument(
-		"--rizz-maxxing",
+		"input_file_path",
+		nargs="?",
+	)
+	parser.add_argument(
 		"-O",
+		"--rizzmaxxing",
 		type=int, # TODO: change to `str` (gyat, mewing, looksmaxxing, ...)?
 		default=0,
-		help="Beta option to control that Level 100 gyatt optimization rizz—straight mogging the settings for max skibidi! 🛠️💻",
+		help="beta control that Level 100 gyatt optimization rizz-straight mogging the settings for max skibidi! 🛠️ 💻"
+	)
+	parser.add_argument(
+		"-l",
+		"--lore",
+		action="store_true", # so default is false
+		help="yap da lore"
 	)
 	args, unknownargs = parser.parse_known_args()
+	if args.lore:
+		print("Yappy lore:\n\n"+"\n".join(l for l in BRAINROT_0.splitlines() if l[0] != "#"))
+		sys_exit(0)
 	global ARGUMENTS
 	ARGUMENTS = args
 
+	if args.input_file_path is None:
+		print("💀: L rizz giving no `input_file_path`.")
+		sys_exit(0)
 	with open(args.input_file_path, "r") as file:
 		yappy_code = "".join(file.readlines())
 
@@ -164,7 +181,7 @@ def main():
 	# python = sys.orig_argv[0]
 
 	# gyatt alpha aura:
-	subprocess.run(["python", "-c", code, *unknownargs])
+	subprocess_run(["python", "-c", code, *unknownargs])
 
 
 
